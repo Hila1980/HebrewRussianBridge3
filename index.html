@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>לומדים עברית</title>
+    <title>לומדים עברית - גשר עברית-רוסית</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
         
@@ -16,7 +16,7 @@
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             background-color: white;
             border-radius: 15px;
@@ -36,7 +36,6 @@
             margin-bottom: 10px;
         }
         
-        /* סגנון ללשוניות */
         .tab-container {
             display: flex;
             justify-content: center;
@@ -49,7 +48,7 @@
             background-color: #e0e0e0;
             border: none;
             border-radius: 5px;
-            margin: 5px;
+            margin: 0 5px;
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
@@ -72,6 +71,7 @@
             display: block;
         }
         
+        /* סגנון אותיות */
         .letter-container {
             display: flex;
             flex-wrap: wrap;
@@ -136,17 +136,10 @@
             background-color: #3a5a8a;
         }
         
-        /* סגנון לתרגול מילים */
-        .word-exercise {
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-        
+        /* סגנון למילים */
         .word-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 15px;
             margin-top: 20px;
         }
@@ -188,12 +181,20 @@
             color: #666;
         }
         
+        /* סגנון לתרגול צלילים */
+        .exercise-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
         .sound-exercise {
-            margin-top: 30px;
             background-color: white;
             border-radius: 10px;
             padding: 20px;
-            display: none;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         
         .sound-title {
@@ -210,11 +211,14 @@
         }
         
         .sound-option {
+            padding: 12px 20px;
             background-color: #e6e6e6;
             border-radius: 5px;
-            padding: 8px 15px;
             cursor: pointer;
             transition: background-color 0.2s;
+            font-size: 24px;
+            min-width: 40px;
+            text-align: center;
         }
         
         .sound-option:hover {
@@ -224,6 +228,22 @@
         .sound-option.selected {
             background-color: #4a6da7;
             color: white;
+        }
+        
+        .check-button {
+            background-color: #4a6da7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+        
+        .check-button:hover {
+            background-color: #3a5a8a;
         }
         
         .result-message {
@@ -258,126 +278,129 @@
     <div class="container">
         <header>
             <h1>לומדים עברית</h1>
-            <p>אתר ללימוד השפה העברית לעולים חדשים</p>
+            <p>אתר ללימוד השפה העברית לדוברי רוסית</p>
         </header>
         
-        <!-- לשוניות עם קלאס שונה לכפתורים -->
+        <!-- לשוניות -->
         <div class="tab-container">
-            <button id="tab-alphabet" class="tab-button active">אותיות</button>
-            <button id="tab-words" class="tab-button">תרגול מילים וצלילים</button>
+            <button id="tab-alphabet" class="tab-button">אותיות</button>
+            <button id="tab-words" class="tab-button">מילים</button>
+            <button id="tab-opening-sound" class="tab-button">צליל פותח</button>
+            <button id="tab-closing-sound" class="tab-button">צליל סוגר</button>
         </div>
         
-        <div id="alphabet" class="tab-content active">
+        <!-- לשונית אותיות -->
+        <div id="alphabet" class="tab-content">
             <h2>האותיות בעברית</h2>
             <p>לחצו על האותיות כדי לשמוע את הצליל שלהן</p>
             
             <div class="letter-container">
-                <div class="letter-card" onclick="highlightCard(this); playSound('alef')">
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('alef')">
                     <div class="letter">א</div>
                     <div class="letter-example">אָלֶף</div>
                     <button class="sound-button">השמע</button>
                 </div>
-                <div class="letter-card" onclick="highlightCard(this); playSound('bet')">
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('bet')">
                     <div class="letter">ב</div>
                     <div class="letter-example">בֵּית</div>
                     <button class="sound-button">השמע</button>
                 </div>
-                <div class="letter-card" onclick="highlightCard(this); playSound('gimel')">
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('gimel')">
                     <div class="letter">ג</div>
                     <div class="letter-example">גִּימֶל</div>
                     <button class="sound-button">השמע</button>
                 </div>
-                <div class="letter-card" onclick="highlightCard(this); playSound('dalet')">
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('daled')">
                     <div class="letter">ד</div>
                     <div class="letter-example">דָּלֶת</div>
                     <button class="sound-button">השמע</button>
                 </div>
-                <div class="letter-card" onclick="highlightCard(this); playSound('hey')">
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('hey')">
                     <div class="letter">ה</div>
                     <div class="letter-example">הֵא</div>
                     <button class="sound-button">השמע</button>
                 </div>
-                <div class="letter-card" onclick="highlightCard(this); playSound('vav')">
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('vav')">
                     <div class="letter">ו</div>
                     <div class="letter-example">וָו</div>
                     <button class="sound-button">השמע</button>
                 </div>
-                <div class="letter-card" onclick="highlightCard(this); playSound('zayin')">
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('zayin')">
                     <div class="letter">ז</div>
                     <div class="letter-example">זַיִן</div>
                     <button class="sound-button">השמע</button>
                 </div>
-                <div class="letter-card" onclick="highlightCard(this); playSound('het')">
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('chet')">
                     <div class="letter">ח</div>
                     <div class="letter-example">חֵית</div>
                     <button class="sound-button">השמע</button>
                 </div>
-                <div class="letter-card" onclick="highlightCard(this); playSound('tet')">
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('tet')">
                     <div class="letter">ט</div>
                     <div class="letter-example">טֵית</div>
                     <button class="sound-button">השמע</button>
                 </div>
-                <div class="letter-card" onclick="highlightCard(this); playSound('yod')">
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('yod')">
                     <div class="letter">י</div>
                     <div class="letter-example">יוֹד</div>
                     <button class="sound-button">השמע</button>
                 </div>
-                <div class="letter-card" onclick="highlightCard(this); playSound('kaf')">
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('kaf')">
                     <div class="letter">כ</div>
                     <div class="letter-example">כַּף</div>
                     <button class="sound-button">השמע</button>
                 </div>
-                <div class="letter-card" onclick="highlightCard(this); playSound('lamed')">
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('lamed')">
                     <div class="letter">ל</div>
                     <div class="letter-example">לָמֶד</div>
                     <button class="sound-button">השמע</button>
                 </div>
-                <div class="letter-card" onclick="highlightCard(this); playSound('mem')">
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('mem')">
                     <div class="letter">מ</div>
                     <div class="letter-example">מֵם</div>
                     <button class="sound-button">השמע</button>
                 </div>
-                <div class="letter-card" onclick="highlightCard(this); playSound('nun')">
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('nun')">
                     <div class="letter">נ</div>
                     <div class="letter-example">נוּן</div>
                     <button class="sound-button">השמע</button>
                 </div>
-                <div class="letter-card" onclick="highlightCard(this); playSound('samekh')">
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('samech')">
                     <div class="letter">ס</div>
                     <div class="letter-example">סָמֶךְ</div>
                     <button class="sound-button">השמע</button>
                 </div>
-                <div class="letter-card" onclick="highlightCard(this); playSound('ayin')">
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('ayin')">
                     <div class="letter">ע</div>
                     <div class="letter-example">עַיִן</div>
                     <button class="sound-button">השמע</button>
                 </div>
-                <div class="letter-card" onclick="highlightCard(this); playSound('pe')">
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('pey')">
                     <div class="letter">פ</div>
                     <div class="letter-example">פֵּה</div>
                     <button class="sound-button">השמע</button>
                 </div>
-                <div class="letter-card" onclick="highlightCard(this); playSound('tsadi')">
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('tsadi')">
                     <div class="letter">צ</div>
                     <div class="letter-example">צָדִי</div>
                     <button class="sound-button">השמע</button>
                 </div>
-                <div class="letter-card" onclick="highlightCard(this); playSound('qof')">
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('kuf')">
                     <div class="letter">ק</div>
                     <div class="letter-example">קוֹף</div>
                     <button class="sound-button">השמע</button>
                 </div>
-                <div class="letter-card" onclick="highlightCard(this); playSound('resh')">
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('resh')">
                     <div class="letter">ר</div>
                     <div class="letter-example">רֵישׁ</div>
                     <button class="sound-button">השמע</button>
                 </div>
-                <div class="letter-card" onclick="highlightCard(this); playSound('shin')">
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('shin')">
                     <div class="letter">ש</div>
                     <div class="letter-example">שִׁין</div>
                     <button class="sound-button">השמע</button>
                 </div>
-                <div class="letter-card" onclick="highlightCard(this); playSound('tav')">
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('tav')">
                     <div class="letter">ת</div>
                     <div class="letter-example">תָּו</div>
                     <button class="sound-button">השמע</button>
@@ -385,64 +408,154 @@
             </div>
         </div>
         
+        <!-- לשונית מילים -->
         <div id="words" class="tab-content">
-            <h2>תרגול מילים וצלילים</h2>
-            <p>לחצו על מילה כדי לתרגל את הצלילים הפותחים והסוגרים שלה</p>
+            <h2>מילים בעברית</h2>
+            <p>לחצו על מילה כדי לשמוע אותה</p>
             
             <div class="word-grid">
-                <div class="word-card" onclick="selectWord('sun', 'שֶׁמֶשׁ', 'солнце', this)">
-                    <img src="/api/placeholder/80/80" class="word-image" alt="שמש">
+                <div class="word-card" onclick="selectWord('shemesh', 'שֶׁמֶשׁ', 'солнце', this, 'שׁ', 'שׁ')">
+                    <img src="shemesh.jpg" class="word-image" alt="שמש" onerror="this.src='/api/placeholder/80/80'">
                     <div class="hebrew-word">שֶׁמֶשׁ</div>
                     <div class="translation">солнце</div>
                 </div>
-                <div class="word-card" onclick="selectWord('tree', 'עֵץ', 'дерево', this)">
-                    <img src="/api/placeholder/80/80" class="word-image" alt="עץ">
+                <div class="word-card" onclick="selectWord('etz', 'עֵץ', 'дерево', this, 'ע', 'ץ')">
+                    <img src="etz.jpg" class="word-image" alt="עץ" onerror="this.src='/api/placeholder/80/80'">
                     <div class="hebrew-word">עֵץ</div>
                     <div class="translation">дерево</div>
                 </div>
-                <div class="word-card" onclick="selectWord('apple', 'תַּפּוּחַ', 'яблоко', this)">
-                    <img src="/api/placeholder/80/80" class="word-image" alt="תפוח">
+                <div class="word-card" onclick="selectWord('tapuach', 'תַּפּוּחַ', 'яблоко', this, 'ת', 'ח')">
+                    <img src="tapuach.jpg" class="word-image" alt="תפוח" onerror="this.src='/api/placeholder/80/80'">
                     <div class="hebrew-word">תַּפּוּחַ</div>
                     <div class="translation">яблоко</div>
                 </div>
-                <div class="word-card" onclick="selectWord('crocodile', 'תַּנִּין', 'крокодил', this)">
-                    <img src="/api/placeholder/80/80" class="word-image" alt="תנין">
+                <div class="word-card" onclick="selectWord('tanin', 'תַּנִּין', 'крокодил', this, 'ת', 'ן')">
+                    <img src="tanin.jpg" class="word-image" alt="תנין" onerror="this.src='/api/placeholder/80/80'">
+                    <div class="hebrew-word">תַּנִּין</div>
+                    <div class="translation">крокодил</div>
+                </div>
+                <div class="word-card" onclick="selectWord('kelev', 'כֶּלֶב', 'собака', this, 'כ', 'ב')">
+                    <img src="kelev.jpg" class="word-image" alt="כלב" onerror="this.src='/api/placeholder/80/80'">
+                    <div class="hebrew-word">כֶּלֶב</div>
+                    <div class="translation">собака</div>
+                </div>
+                <div class="word-card" onclick="selectWord('para', 'פָּרָה', 'корова', this, 'פ', 'ה')">
+                    <img src="para.jpg" class="word-image" alt="פרה" onerror="this.src='/api/placeholder/80/80'">
+                    <div class="hebrew-word">פָּרָה</div>
+                    <div class="translation">корова</div>
+                </div>
+                <div class="word-card" onclick="selectWord('sefer', 'סֵפֶר', 'книга', this, 'ס', 'ר')">
+                    <img src="sefer.jpg" class="word-image" alt="ספר" onerror="this.src='/api/placeholder/80/80'">
+                    <div class="hebrew-word">סֵפֶר</div>
+                    <div class="translation">книга</div>
+                </div>
+                <div class="word-card" onclick="selectWord('tzalachat', 'צַלַּחַת', 'тарелка', this, 'צ', 'ת')">
+                    <img src="tzalachat.jpg" class="word-image" alt="צלחת" onerror="this.src='/api/placeholder/80/80'">
+                    <div class="hebrew-word">צַלַּחַת</div>
+                    <div class="translation">тарелка</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- לשונית צליל פותח -->
+        <div id="opening-sound" class="tab-content">
+            <h2>תרגול צליל פותח</h2>
+            <p>בחרו מילה ומצאו את הצליל הפותח שלה</p>
+            
+            <div class="word-grid">
+                <div class="word-card" onclick="prepareOpeningSoundExercise('shemesh', 'שֶׁמֶשׁ', 'שׁ')">
+                    <img src="shemesh.jpg" class="word-image" alt="שמש" onerror="this.src='/api/placeholder/80/80'">
+                    <div class="hebrew-word">שֶׁמֶשׁ</div>
+                    <div class="translation">солнце</div>
+                </div>
+                <div class="word-card" onclick="prepareOpeningSoundExercise('etz', 'עֵץ', 'ע')">
+                    <img src="etz.jpg" class="word-image" alt="עץ" onerror="this.src='/api/placeholder/80/80'">
+                    <div class="hebrew-word">עֵץ</div>
+                    <div class="translation">дерево</div>
+                </div>
+                <div class="word-card" onclick="prepareOpeningSoundExercise('tapuach', 'תַּפּוּחַ', 'ת')">
+                    <img src="tapuach.jpg" class="word-image" alt="תפוח" onerror="this.src='/api/placeholder/80/80'">
+                    <div class="hebrew-word">תַּפּוּחַ</div>
+                    <div class="translation">яблоко</div>
+                </div>
+                <div class="word-card" onclick="prepareOpeningSoundExercise('tanin', 'תַּנִּין', 'ת')">
+                    <img src="tanin.jpg" class="word-image" alt="תנין" onerror="this.src='/api/placeholder/80/80'">
                     <div class="hebrew-word">תַּנִּין</div>
                     <div class="translation">крокодил</div>
                 </div>
             </div>
             
-            <div id="sound-exercise" class="sound-exercise">
-                <h3 id="selected-word-title">תרגול המילה: <span></span></h3>
-                
-                <div class="sound-type">
-                    <div class="sound-title">בחר את הצליל הפותח של המילה:</div>
-                    <div class="sound-options" id="opening-sounds">
-                        <div class="sound-option" onclick="selectOpeningSound(this, 'שׁ')">שׁ</div>
-                        <div class="sound-option" onclick="selectOpeningSound(this, 'ע')">ע</div>
-                        <div class="sound-option" onclick="selectOpeningSound(this, 'ת')">ת</div>
-                        <div class="sound-option" onclick="selectOpeningSound(this, 'צ')">צ</div>
-                    </div>
+            <!-- תרגיל צליל פותח -->
+            <div id="opening-sound-exercise" class="sound-exercise" style="display: none;">
+                <div class="exercise-header">
+                    <h3>תרגול המילה: <span id="opening-exercise-word"></span></h3>
+                    <button onclick="playWordSound(currentWord)" class="sound-button">השמע את המילה</button>
                 </div>
                 
-                <div class="sound-type">
-                    <div class="sound-title">בחר את הצליל הסוגר של המילה:</div>
-                    <div class="sound-options" id="closing-sounds">
-                        <div class="sound-option" onclick="selectClosingSound(this, 'שׁ')">שׁ</div>
-                        <div class="sound-option" onclick="selectClosingSound(this, 'ץ')">ץ</div>
-                        <div class="sound-option" onclick="selectClosingSound(this, 'ח')">ח</div>
-                        <div class="sound-option" onclick="selectClosingSound(this, 'ן')">ן</div>
-                    </div>
+                <div class="sound-title">בחר את הצליל הפותח של המילה:</div>
+                <div class="sound-options">
+                    <div class="sound-option" onclick="selectOpeningSound(this, 'שׁ')">שׁ</div>
+                    <div class="sound-option" onclick="selectOpeningSound(this, 'ת')">ת</div>
+                    <div class="sound-option" onclick="selectOpeningSound(this, 'ע')">ע</div>
+                    <div class="sound-option" onclick="selectOpeningSound(this, 'צ')">צ</div>
                 </div>
                 
-                <button class="sound-button" style="font-size: 16px; padding: 8px 15px; margin-top: 20px;" onclick="checkSounds()">בדוק תשובות</button>
+                <button class="check-button" onclick="checkOpeningSound()">בדוק תשובה</button>
+                <div id="opening-result" class="result-message"></div>
+            </div>
+        </div>
+        
+        <!-- לשונית צליל סוגר -->
+        <div id="closing-sound" class="tab-content">
+            <h2>תרגול צליל סוגר</h2>
+            <p>בחרו מילה ומצאו את הצליל הסוגר שלה</p>
+            
+            <div class="word-grid">
+                <div class="word-card" onclick="prepareClosingSoundExercise('shemesh', 'שֶׁמֶשׁ', 'שׁ')">
+                    <img src="shemesh.jpg" class="word-image" alt="שמש" onerror="this.src='/api/placeholder/80/80'">
+                    <div class="hebrew-word">שֶׁמֶשׁ</div>
+                    <div class="translation">солнце</div>
+                </div>
+                <div class="word-card" onclick="prepareClosingSoundExercise('etz', 'עֵץ', 'ץ')">
+                    <img src="etz.jpg" class="word-image" alt="עץ" onerror="this.src='/api/placeholder/80/80'">
+                    <div class="hebrew-word">עֵץ</div>
+                    <div class="translation">дерево</div>
+                </div>
+                <div class="word-card" onclick="prepareClosingSoundExercise('tapuach', 'תַּפּוּחַ', 'ח')">
+                    <img src="tapuach.jpg" class="word-image" alt="תפוח" onerror="this.src='/api/placeholder/80/80'">
+                    <div class="hebrew-word">תַּפּוּחַ</div>
+                    <div class="translation">яблоко</div>
+                </div>
+                <div class="word-card" onclick="prepareClosingSoundExercise('tanin', 'תַּנִּין', 'ן')">
+                    <img src="tanin.jpg" class="word-image" alt="תנין" onerror="this.src='/api/placeholder/80/80'">
+                    <div class="hebrew-word">תַּנִּין</div>
+                    <div class="translation">крокодил</div>
+                </div>
+            </div>
+            
+            <!-- תרגיל צליל סוגר -->
+            <div id="closing-sound-exercise" class="sound-exercise" style="display: none;">
+                <div class="exercise-header">
+                    <h3>תרגול המילה: <span id="closing-exercise-word"></span></h3>
+                    <button onclick="playWordSound(currentWord)" class="sound-button">השמע את המילה</button>
+                </div>
                 
-                <div id="result-message" class="result-message"></div>
+                <div class="sound-title">בחר את הצליל הסוגר של המילה:</div>
+                <div class="sound-options">
+                    <div class="sound-option" onclick="selectClosingSound(this, 'שׁ')">שׁ</div>
+                    <div class="sound-option" onclick="selectClosingSound(this, 'ץ')">ץ</div>
+                    <div class="sound-option" onclick="selectClosingSound(this, 'ח')">ח</div>
+                    <div class="sound-option" onclick="selectClosingSound(this, 'ן')">ן</div>
+                    <div class="sound-option" onclick="selectClosingSound(this, 'ת')">ת</div>
+                </div>
+                
+                <button class="check-button" onclick="checkClosingSound()">בדוק תשובה</button>
+                <div id="closing-result" class="result-message"></div>
             </div>
         </div>
         
         <footer>
-            <p>© 2025 כל הזכויות שמורות | לומדים עברית</p>
+            <p>© 2025 כל הזכויות שמורות</p>
         </footer>
     </div>
 
@@ -450,24 +563,32 @@
         // משתנים גלובליים
         let currentWord = '';
         let currentHebrewWord = '';
+        let currentOpeningSound = '';
+        let currentClosingSound = '';
         let selectedOpeningSound = '';
         let selectedClosingSound = '';
         
-        // מיפוי מילים לצלילים פותחים וסוגרים
-        const wordSoundsMap = {
-            'sun': { opening: 'שׁ', closing: 'שׁ' },
-            'tree': { opening: 'ע', closing: 'ץ' },
-            'apple': { opening: 'ת', closing: 'ח' },
-            'crocodile': { opening: 'ת', closing: 'ן' }
-        };
-        
-        // מאזינים ללשוניות
-        document.getElementById('tab-alphabet').addEventListener('click', function() {
+        // אתחול העמוד
+        document.addEventListener('DOMContentLoaded', function() {
+            // הגדרת מאזינים ללשוניות
+            document.getElementById('tab-alphabet').addEventListener('click', function() {
+                showTab('alphabet');
+            });
+            
+            document.getElementById('tab-words').addEventListener('click', function() {
+                showTab('words');
+            });
+            
+            document.getElementById('tab-opening-sound').addEventListener('click', function() {
+                showTab('opening-sound');
+            });
+            
+            document.getElementById('tab-closing-sound').addEventListener('click', function() {
+                showTab('closing-sound');
+            });
+            
+            // פתיחת לשונית ברירת מחדל
             showTab('alphabet');
-        });
-        
-        document.getElementById('tab-words').addEventListener('click', function() {
-            showTab('words');
         });
         
         // פונקציה להחלפת לשוניות
@@ -493,82 +614,43 @@
             }, 1000);
         }
         
-        // פונקציה להשמעת צליל
-        function playSound(soundId) {
-            // אם Web Speech API לא זמין
-            if (!('speechSynthesis' in window)) {
-                console.error("הדפדפן שלך אינו תומך בהקראה.");
-                alert("הדפדפן שלך אינו תומך בהקראה.");
-                return;
-            }
+        // פונקציה להשמעת צליל של אות
+        function playLetterSound(letterId) {
+            // נתיב לקובץ האודיו
+            const audioPath = 'שמות האותיות/' + letterId + '.mp3';
+            playAudio(audioPath, letterId);
+        }
+        
+        // פונקציה להשמעת צליל של מילה
+        function playWordSound(wordId) {
+            // נתיב לקובץ האודיו
+            const audioPath = 'מילים/' + wordId + '.mp3';
+            playAudio(audioPath, wordId);
+        }
+        
+        // פונקציה להשמעת קובץ אודיו
+        function playAudio(audioPath, fallbackText) {
+            // יצירת אובייקט אודיו
+            const audio = new Audio(audioPath);
             
-            // מיפוי זיהוי לטקסט שיוקרא
-            const textMap = {
-                // אותיות
-                'alef': 'אָלֶף',
-                'bet': 'בֵּית',
-                'gimel': 'גִּימֶל',
-                'dalet': 'דָּלֶת',
-                'hey': 'הֵא',
-                'vav': 'וָו',
-                'zayin': 'זַיִן',
-                'het': 'חֵית',
-                'tet': 'טֵית',
-                'yod': 'יוֹד',
-                'kaf': 'כַּף',
-                'lamed': 'לָמֶד',
-                'mem': 'מֵם',
-                'nun': 'נוּן',
-                'samekh': 'סָמֶךְ',
-                'ayin': 'עַיִן',
-                'pe': 'פֵּה',
-                'tsadi': 'צָדִי',
-                'qof': 'קוֹף',
-                'resh': 'רֵישׁ',
-                'shin': 'שִׁין',
-                'tav': 'תָּו',
-                // מילים
-                'sun': 'שֶׁמֶשׁ',
-                'tree': 'עֵץ',
-                'apple': 'תַּפּוּחַ',
-                'crocodile': 'תַּנִּין'
-            };
-            
-            // הטקסט להקראה
-            const textToSpeak = textMap[soundId] || soundId;
-            
-            try {
-                // יצירת אובייקט הקראה חדש
-                const utterance = new SpeechSynthesisUtterance(textToSpeak);
+            // ניסיון להשמיע את הקובץ
+            audio.play().catch(error => {
+                console.error('שגיאה בהשמעת הקובץ:', error);
+                console.log('מנסה להשתמש ב-Web Speech API כגיבוי');
                 
-                // הגדרת שפה לעברית
-                utterance.lang = 'he-IL';
-                
-                // בדיקה אם קיימים קולות בעברית
-                let voices = window.speechSynthesis.getVoices();
-                let hebrewVoice = voices.find(voice => voice.lang.includes('he') || voice.lang.includes('iw'));
-                
-                // אם נמצא קול עברי, השתמש בו
-                if (hebrewVoice) {
-                    utterance.voice = hebrewVoice;
+                // במקרה של כישלון, השתמש ב-Web Speech API כגיבוי
+                if ('speechSynthesis' in window) {
+                    const utterance = new SpeechSynthesisUtterance(fallbackText);
+                    utterance.lang = 'he-IL';
+                    window.speechSynthesis.speak(utterance);
+                } else {
+                    alert('לא ניתן להשמיע את הקובץ ואין תמיכה בהקראה');
                 }
-                
-                // הגדרת מהירות ועוצמה
-                utterance.rate = 0.9; // קצת יותר איטי מהרגיל
-                utterance.volume = 1.0; // עוצמת קול מרבית
-                
-                // הפעלת ההקראה
-                window.speechSynthesis.speak(utterance);
-                
-                console.log('הקראה של:', textToSpeak);
-            } catch (error) {
-                console.error('שגיאה בהקראה:', error);
-                alert('שגיאה בהקראה. נא לנסות שוב מאוחר יותר.');
-            }
+            });
         }
         
         // פונקציה לבחירת מילה
-        function selectWord(wordId, hebrewWord, russianWord, element) {
+        function selectWord(wordId, hebrewWord, russianWord, element, openingSound, closingSound) {
             // איפוס בחירות קודמות
             document.querySelectorAll('.word-card').forEach(card => {
                 card.classList.remove('selected');
@@ -577,33 +659,53 @@
             // הדגשת המילה הנבחרת
             element.classList.add('selected');
             
-            // שמירת המילה הנוכחית
+            // שמירת נתוני המילה
             currentWord = wordId;
             currentHebrewWord = hebrewWord;
-            
-            // עדכון הכותרת
-            document.querySelector('#selected-word-title span').textContent = hebrewWord;
-            
-            // הצגת אזור התרגול
-            document.getElementById('sound-exercise').style.display = 'block';
-            
-            // איפוס בחירות קודמות
-            resetSoundOptions();
+            currentOpeningSound = openingSound;
+            currentClosingSound = closingSound;
             
             // השמעת המילה
-            playSound(wordId);
+            playWordSound(wordId);
         }
         
-        // פונקציה לאיפוס אפשרויות הצלילים
-        function resetSoundOptions() {
-            selectedOpeningSound = '';
-            selectedClosingSound = '';
+        // פונקציה להכנת תרגיל צליל פותח
+        function prepareOpeningSoundExercise(wordId, hebrewWord, openingSound) {
+            // שמירת נתוני המילה
+            currentWord = wordId;
+            currentHebrewWord = hebrewWord;
+            currentOpeningSound = openingSound;
             
-            document.querySelectorAll('.sound-option').forEach(option => {
+            // הצגת המילה בתרגיל
+            document.getElementById('opening-exercise-word').textContent = hebrewWord;
+            
+            // איפוס בחירות קודמות
+            resetOpeningSoundExercise();
+            
+            // הצגת התרגיל
+            document.getElementById('opening-sound-exercise').style.display = 'block';
+            
+            // סימון המילה הנבחרת
+            document.querySelectorAll('#opening-sound .word-card').forEach(card => {
+                card.classList.remove('selected');
+                if (card.querySelector('.hebrew-word').textContent === hebrewWord) {
+                    card.classList.add('selected');
+                }
+            });
+            
+            // השמעת המילה
+            playWordSound(wordId);
+        }
+        
+        // פונקציה לאיפוס תרגיל צליל פותח
+        function resetOpeningSoundExercise() {
+            selectedOpeningSound = '';
+            
+            document.querySelectorAll('#opening-sound-exercise .sound-option').forEach(option => {
                 option.classList.remove('selected');
             });
             
-            const resultMessage = document.getElementById('result-message');
+            const resultMessage = document.getElementById('opening-result');
             resultMessage.style.display = 'none';
             resultMessage.textContent = '';
             resultMessage.classList.remove('success', 'error');
@@ -612,7 +714,7 @@
         // פונקציה לבחירת צליל פותח
         function selectOpeningSound(element, soundValue) {
             // איפוס בחירות קודמות
-            document.querySelectorAll('#opening-sounds .sound-option').forEach(option => {
+            document.querySelectorAll('#opening-sound-exercise .sound-option').forEach(option => {
                 option.classList.remove('selected');
             });
             
@@ -623,10 +725,78 @@
             selectedOpeningSound = soundValue;
         }
         
+        // פונקציה לבדיקת צליל פותח
+        function checkOpeningSound() {
+            if (!selectedOpeningSound) {
+                alert('יש לבחור צליל תחילה');
+                return;
+            }
+            
+            const resultMessage = document.getElementById('opening-result');
+            resultMessage.style.display = 'block';
+            
+            if (selectedOpeningSound === currentOpeningSound) {
+                resultMessage.textContent = 'כל הכבוד! בחרת נכון את הצליל הפותח.';
+                resultMessage.classList.add('success');
+                resultMessage.classList.remove('error');
+                
+                // השמעת המילה כפרס
+                setTimeout(() => {
+                    playWordSound(currentWord);
+                }, 500);
+            } else {
+                resultMessage.textContent = 'יש לתקן את הבחירה. הצליל הפותח הנכון הוא: ' + currentOpeningSound;
+                resultMessage.classList.add('error');
+                resultMessage.classList.remove('success');
+            }
+        }
+        
+        // פונקציה להכנת תרגיל צליל סוגר
+        function prepareClosingSoundExercise(wordId, hebrewWord, closingSound) {
+            // שמירת נתוני המילה
+            currentWord = wordId;
+            currentHebrewWord = hebrewWord;
+            currentClosingSound = closingSound;
+            
+            // הצגת המילה בתרגיל
+            document.getElementById('closing-exercise-word').textContent = hebrewWord;
+            
+            // איפוס בחירות קודמות
+            resetClosingSoundExercise();
+            
+            // הצגת התרגיל
+            document.getElementById('closing-sound-exercise').style.display = 'block';
+            
+            // סימון המילה הנבחרת
+            document.querySelectorAll('#closing-sound .word-card').forEach(card => {
+                card.classList.remove('selected');
+                if (card.querySelector('.hebrew-word').textContent === hebrewWord) {
+                    card.classList.add('selected');
+                }
+            });
+            
+            // השמעת המילה
+            playWordSound(wordId);
+        }
+        
+        // פונקציה לאיפוס תרגיל צליל סוגר
+        function resetClosingSoundExercise() {
+            selectedClosingSound = '';
+            
+            document.querySelectorAll('#closing-sound-exercise .sound-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            const resultMessage = document.getElementById('closing-result');
+            resultMessage.style.display = 'none';
+            resultMessage.textContent = '';
+            resultMessage.classList.remove('success', 'error');
+        }
+        
         // פונקציה לבחירת צליל סוגר
         function selectClosingSound(element, soundValue) {
             // איפוס בחירות קודמות
-            document.querySelectorAll('#closing-sounds .sound-option').forEach(option => {
+            document.querySelectorAll('#closing-sound-exercise .sound-option').forEach(option => {
                 option.classList.remove('selected');
             });
             
@@ -637,75 +807,30 @@
             selectedClosingSound = soundValue;
         }
         
-        // פונקציה לבדיקת תשובות
-        function checkSounds() {
-            // אם לא נבחרה מילה
-            if (!currentWord) {
-                alert('נא לבחור מילה תחילה');
+        // פונקציה לבדיקת צליל סוגר
+        function checkClosingSound() {
+            if (!selectedClosingSound) {
+                alert('יש לבחור צליל תחילה');
                 return;
             }
             
-            // קבלת הצלילים הנכונים למילה
-            const correctSounds = wordSoundsMap[currentWord];
-            
-            // בדיקה אם הצלילים נכונים
-            const isOpeningCorrect = selectedOpeningSound === correctSounds.opening;
-            const isClosingCorrect = selectedClosingSound === correctSounds.closing;
-            
-            // הצגת התוצאה
-            const resultMessage = document.getElementById('result-message');
+            const resultMessage = document.getElementById('closing-result');
             resultMessage.style.display = 'block';
             
-            if (isOpeningCorrect && isClosingCorrect) {
-                resultMessage.textContent = 'כל הכבוד! בחרת נכון את הצלילים.';
+            if (selectedClosingSound === currentClosingSound) {
+                resultMessage.textContent = 'כל הכבוד! בחרת נכון את הצליל הסוגר.';
                 resultMessage.classList.add('success');
                 resultMessage.classList.remove('error');
                 
                 // השמעת המילה כפרס
                 setTimeout(() => {
-                    playSound(currentWord);
+                    playWordSound(currentWord);
                 }, 500);
             } else {
-                resultMessage.textContent = 'יש לתקן את הבחירה. נסה שוב!';
+                resultMessage.textContent = 'יש לתקן את הבחירה. הצליל הסוגר הנכון הוא: ' + currentClosingSound;
                 resultMessage.classList.add('error');
                 resultMessage.classList.remove('success');
-                
-                // אם הצליל הפותח לא נכון
-                if (!isOpeningCorrect) {
-                    // הדגשת האפשרות הנכונה
-                    const correctOption = document.querySelector(`#opening-sounds .sound-option:nth-child(${getOptionIndex(correctSounds.opening, 'opening')})`);
-                    if (correctOption) {
-                        correctOption.style.border = '2px solid green';
-                        setTimeout(() => {
-                            correctOption.style.border = '';
-                        }, 2000);
-                    }
-                }
-                
-                // אם הצליל הסוגר לא נכון
-                if (!isClosingCorrect) {
-                    // הדגשת האפשרות הנכונה
-                    const correctOption = document.querySelector(`#closing-sounds .sound-option:nth-child(${getOptionIndex(correctSounds.closing, 'closing')})`);
-                    if (correctOption) {
-                        correctOption.style.border = '2px solid green';
-                        setTimeout(() => {
-                            correctOption.style.border = '';
-                        }, 2000);
-                    }
-                }
             }
-        }
-        
-        // פונקציה עזר למציאת אינדקס האפשרות
-        function getOptionIndex(soundValue, type) {
-            let options;
-            if (type === 'opening') {
-                options = ['שׁ', 'ע', 'ת', 'צ'];
-            } else {
-                options = ['שׁ', 'ץ', 'ח', 'ן'];
-            }
-            
-            return options.indexOf(soundValue) + 1;
         }
     </script>
 </body>

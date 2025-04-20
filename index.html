@@ -63,6 +63,51 @@
             font-size: 1.2rem;
         }
         
+        /* הוראות */
+        .instructions-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: var(--primary-light);
+            border-radius: 10px;
+        }
+        
+        .instructions {
+            flex: 1;
+            min-width: 300px;
+            padding: 15px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .instructions h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--gray);
+            padding-bottom: 5px;
+        }
+        
+        .instructions ul {
+            margin: 10px 0;
+            padding-right: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 5px;
+        }
+        
+        .hebrew {
+            direction: rtl;
+        }
+        
+        .russian {
+            direction: ltr;
+        }
+        
         /* סגנון ללשוניות */
         .tab-container {
             display: flex;
@@ -419,6 +464,30 @@
         <header>
             <h1>לומדים עברית</h1>
             <p>אתר ללימוד השפה העברית לדוברי רוסית</p>
+            <div class="instructions-container">
+                <div class="instructions hebrew">
+                    <h3>הוֹרָאוֹת:</h3>
+                    <p>לַחֲצוּ עַל הַלִּשְׁוֹנִיּוֹת לְמַעֲבָר בֵּין הַתְּכָנִים הַשּׁוֹנִים:</p>
+                    <ul>
+                        <li>אוֹתִיּוֹת - לִלְמוֹד אֶת הָאוֹתִיּוֹת הָעִבְרִיּוֹת</li>
+                        <li>מִלִּים - לִלְמוֹד מִלִּים בָּסִיסִיּוֹת בְּעִבְרִית</li>
+                        <li>צְלִיל פּוֹתֵחַ - לְתַרְגֵּל זִהוּי הַצְּלִיל הָרִאשׁוֹן בַּמִּלָּה</li>
+                        <li>צְלִיל סוֹגֵר - לְתַרְגֵּל זִהוּי הַצְּלִיל הָאַחֲרוֹן בַּמִּלָּה</li>
+                    </ul>
+                    <p>לַחֲצוּ עַל הַכַּפְתּוֹר "הַשְׁמַע" כְּדֵי לִשְׁמוֹעַ אֶת הַצְּלִילִים.</p>
+                </div>
+                <div class="instructions russian">
+                    <h3>Инструкции:</h3>
+                    <p>Нажмите на вкладки для перехода между различными разделами:</p>
+                    <ul>
+                        <li>Буквы - изучение еврейского алфавита</li>
+                        <li>Слова - изучение базовых слов на иврите</li>
+                        <li>Начальный звук - практика определения первого звука в слове</li>
+                        <li>Конечный звук - практика определения последнего звука в слове</li>
+                    </ul>
+                    <p>Нажмите на кнопку "השמע" (Воспроизвести), чтобы услышать звуки.</p>
+                </div>
+            </div>
         </header>
         
         <!-- לשוניות -->
@@ -452,12 +521,12 @@
                 </div>
                 <div class="letter-card" onclick="highlightCard(this); playLetterSound('daled')">
                     <div class="letter">ד</div>
-                    <div class="letter-example">דָּלֶת</div>
+                    <div class="letter-example">דָּלֶד</div>
                     <button class="sound-button">השמע</button>
                 </div>
                 <div class="letter-card" onclick="highlightCard(this); playLetterSound('hey')">
                     <div class="letter">ה</div>
-                    <div class="letter-example">הֵא</div>
+                    <div class="letter-example">הֵי</div>
                     <button class="sound-button">השמע</button>
                 </div>
                 <div class="letter-card" onclick="highlightCard(this); playLetterSound('vav')">
@@ -495,6 +564,56 @@
                     <div class="letter-example">לָמֶד</div>
                     <button class="sound-button">השמע</button>
                 </div>
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('mem')">
+                    <div class="letter">מ</div>
+                    <div class="letter-example">מֵם</div>
+                    <button class="sound-button">השמע</button>
+                </div>
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('nun')">
+                    <div class="letter">נ</div>
+                    <div class="letter-example">נוּן</div>
+                    <button class="sound-button">השמע</button>
+                </div>
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('samech')">
+                    <div class="letter">ס</div>
+                    <div class="letter-example">סָמֶךְ</div>
+                    <button class="sound-button">השמע</button>
+                </div>
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('ayin')">
+                    <div class="letter">ע</div>
+                    <div class="letter-example">עַיִן</div>
+                    <button class="sound-button">השמע</button>
+                </div>
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('pey')">
+                    <div class="letter">פ</div>
+                    <div class="letter-example">פֵּה</div>
+                    <button class="sound-button">השמע</button>
+                </div>
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('tsadik')">
+                    <div class="letter">צ</div>
+                    <div class="letter-example">צָדִיק</div>
+                    <button class="sound-button">השמע</button>
+                </div>
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('kuf')">
+                    <div class="letter">ק</div>
+                    <div class="letter-example">קוּף</div>
+                    <button class="sound-button">השמע</button>
+                </div>
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('resh')">
+                    <div class="letter">ר</div>
+                    <div class="letter-example">רֵישׁ</div>
+                    <button class="sound-button">השמע</button>
+                </div>
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('shin')">
+                    <div class="letter">ש</div>
+                    <div class="letter-example">שִׁין</div>
+                    <button class="sound-button">השמע</button>
+                </div>
+                <div class="letter-card" onclick="highlightCard(this); playLetterSound('taf')">
+                    <div class="letter">ת</div>
+                    <div class="letter-example">תָּף</div>
+                    <button class="sound-button">השמע</button>
+                </div>
             </div>
         </div>
         
@@ -506,52 +625,7 @@
             <div class="word-grid">
                 <div class="word-card" onclick="playWordSound('shemesh')">
                     <div class="word-image-container">
-                        <img src="/api/placeholder/200/160" class="word-image" alt="שמש">
-                    </div>
-                    <div class="word-details">
-                        <div class="hebrew-word">שֶׁמֶשׁ</div>
-                        <div class="translation">солнце</div>
-                    </div>
-                </div>
-                <div class="word-card" onclick="playWordSound('etz')">
-                    <div class="word-image-container">
-                        <img src="/api/placeholder/200/160" class="word-image" alt="עץ">
-                    </div>
-                    <div class="word-details">
-                        <div class="hebrew-word">עֵץ</div>
-                        <div class="translation">дерево</div>
-                    </div>
-                </div>
-                <div class="word-card" onclick="playWordSound('tapuach')">
-                    <div class="word-image-container">
-                        <img src="/api/placeholder/200/160" class="word-image" alt="תפוח">
-                    </div>
-                    <div class="word-details">
-                        <div class="hebrew-word">תַּפּוּחַ</div>
-                        <div class="translation">яблоко</div>
-                    </div>
-                </div>
-                <div class="word-card" onclick="playWordSound('tanin')">
-                    <div class="word-image-container">
-                        <img src="/api/placeholder/200/160" class="word-image" alt="תנין">
-                    </div>
-                    <div class="word-details">
-                        <div class="hebrew-word">תַּנִּין</div>
-                        <div class="translation">крокодил</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- לשונית צליל פותח -->
-        <div id="opening-sound" class="tab-content">
-            <h2>תרגול צליל פותח</h2>
-            <p>בחרו מילה ומצאו את הצליל הפותח שלה</p>
-            
-            <div class="word-grid">
-                <div class="word-card" onclick="prepareOpeningSoundExercise('shemesh', 'שֶׁמֶשׁ', 'שׁ')">
-                    <div class="word-image-container">
-                        <img src="/api/placeholder/200/160" class="word-image" alt="שמש">
+                        <img src="מילים/shemesh.jpg" onerror="this.src='https://placehold.co/200x160/f0f0f0/999999?text=שמש'" class="word-image" alt="שמש">
                     </div>
                     <div class="word-details">
                         <div class="hebrew-word">שֶׁמֶשׁ</div>
@@ -560,7 +634,7 @@
                 </div>
                 <div class="word-card" onclick="prepareOpeningSoundExercise('etz', 'עֵץ', 'ע')">
                     <div class="word-image-container">
-                        <img src="/api/placeholder/200/160" class="word-image" alt="עץ">
+                        <img src="מילים/etz.jpg" onerror="this.src='https://placehold.co/200x160/f0f0f0/999999?text=עץ'" class="word-image" alt="עץ">
                     </div>
                     <div class="word-details">
                         <div class="hebrew-word">עֵץ</div>
@@ -569,7 +643,7 @@
                 </div>
                 <div class="word-card" onclick="prepareOpeningSoundExercise('tapuach', 'תַּפּוּחַ', 'ת')">
                     <div class="word-image-container">
-                        <img src="/api/placeholder/200/160" class="word-image" alt="תפוח">
+                        <img src="מילים/tapuach.jpg" onerror="this.src='https://placehold.co/200x160/f0f0f0/999999?text=תפוח'" class="word-image" alt="תפוח">
                     </div>
                     <div class="word-details">
                         <div class="hebrew-word">תַּפּוּחַ</div>
@@ -578,7 +652,7 @@
                 </div>
                 <div class="word-card" onclick="prepareOpeningSoundExercise('tanin', 'תַּנִּין', 'ת')">
                     <div class="word-image-container">
-                        <img src="/api/placeholder/200/160" class="word-image" alt="תנין">
+                        <img src="מילים/tanin.jpg" onerror="this.src='https://placehold.co/200x160/f0f0f0/999999?text=תנין'" class="word-image" alt="תנין">
                     </div>
                     <div class="word-details">
                         <div class="hebrew-word">תַּנִּין</div>
@@ -612,10 +686,27 @@
             <h2>תרגול צליל סוגר</h2>
             <p>בחרו מילה ומצאו את הצליל הסוגר שלה</p>
             
+            <div class="instructions-container">
+                <div class="instructions hebrew">
+                    <h3>הוֹרָאוֹת לְתִרְגּוּל:</h3>
+                    <p>1. לַחֲצוּ עַל אַחַת הַמִּלִּים לְמַטָּה</p>
+                    <p>2. הַקְשִׁיבוּ לַמִּלָּה</p>
+                    <p>3. בַּחֲרוּ אֶת הַצְּלִיל הַסּוֹגֵר (הָאַחֲרוֹן) שֶׁל הַמִּלָּה</p>
+                    <p>4. לַחֲצוּ עַל "בְּדֹק תְּשׁוּבָה" לְקַבָּלַת מַשׁוֹב</p>
+                </div>
+                <div class="instructions russian">
+                    <h3>Инструкции для упражнения:</h3>
+                    <p>1. Нажмите на одно из слов ниже</p>
+                    <p>2. Прослушайте слово</p>
+                    <p>3. Выберите конечный (последний) звук слова</p>
+                    <p>4. Нажмите "Проверить ответ" для получения результата</p>
+                </div>
+            </div>
+            
             <div class="word-grid">
                 <div class="word-card" onclick="prepareClosingSoundExercise('shemesh', 'שֶׁמֶשׁ', 'שׁ')">
                     <div class="word-image-container">
-                        <img src="/api/placeholder/200/160" class="word-image" alt="שמש">
+                        <img src="מילים/shemesh.jpg" onerror="this.src='https://placehold.co/200x160/f0f0f0/999999?text=שמש'" class="word-image" alt="שמש">
                     </div>
                     <div class="word-details">
                         <div class="hebrew-word">שֶׁמֶשׁ</div>
@@ -624,7 +715,7 @@
                 </div>
                 <div class="word-card" onclick="prepareClosingSoundExercise('etz', 'עֵץ', 'ץ')">
                     <div class="word-image-container">
-                        <img src="/api/placeholder/200/160" class="word-image" alt="עץ">
+                        <img src="מילים/etz.jpg" onerror="this.src='https://placehold.co/200x160/f0f0f0/999999?text=עץ'" class="word-image" alt="עץ">
                     </div>
                     <div class="word-details">
                         <div class="hebrew-word">עֵץ</div>
@@ -633,7 +724,7 @@
                 </div>
                 <div class="word-card" onclick="prepareClosingSoundExercise('tapuach', 'תַּפּוּחַ', 'ח')">
                     <div class="word-image-container">
-                        <img src="/api/placeholder/200/160" class="word-image" alt="תפוח">
+                        <img src="מילים/tapuach.jpg" onerror="this.src='https://placehold.co/200x160/f0f0f0/999999?text=תפוח'" class="word-image" alt="תפוח">
                     </div>
                     <div class="word-details">
                         <div class="hebrew-word">תַּפּוּחַ</div>
@@ -642,7 +733,7 @@
                 </div>
                 <div class="word-card" onclick="prepareClosingSoundExercise('tanin', 'תַּנִּין', 'ן')">
                     <div class="word-image-container">
-                        <img src="/api/placeholder/200/160" class="word-image" alt="תנין">
+                        <img src="מילים/tanin.jpg" onerror="this.src='https://placehold.co/200x160/f0f0f0/999999?text=תנין'" class="word-image" alt="תנין">
                     </div>
                     <div class="word-details">
                         <div class="hebrew-word">תַּנִּין</div>
@@ -686,15 +777,8 @@
         let selectedOpeningSound = '';
         let selectedClosingSound = '';
         
-        // מילון מיפוי שמות הקבצים
-        const fileNameMap = {
-            // מילים
-            'shemesh': 'shemesh',
-            'etz': 'etz',
-            'tapuach': 'tapuach',
-            'tanin': 'tanin',
-            
-            // אותיות
+        // מילון מיפוי שמות הקבצים של האותיות (לפי שמות הקבצים בתיקייה)
+        const letterFileMap = {
             'alef': 'alef',
             'bet': 'bet',
             'gimel': 'gimel',
@@ -706,7 +790,17 @@
             'tet': 'tet',
             'yod': 'yod',
             'kaf': 'kaf',
-            'lamed': 'lamed'
+            'lamed': 'lamed',
+            'mem': 'mem',
+            'nun': 'nun',
+            'samech': 'samech',
+            'ayin': 'ayin',
+            'pey': 'pey',
+            'tsadik': 'tsadik',
+            'kuf': 'kuf',
+            'resh': 'resh',
+            'shin': 'shin',
+            'taf': 'taf'
         };
         
         // אתחול העמוד
@@ -758,8 +852,9 @@
         // פונקציה להשמעת צליל של אות
         function playLetterSound(letterId) {
             console.log('מנסה להשמיע קובץ אות:', letterId);
-            // נתיב לקובץ האודיו
-            const audioPath = `שמות האותיות/${letterId}.mp3`;
+            // נתיב לקובץ האודיו - שימוש במיפוי שמות הקבצים
+            const fileName = letterFileMap[letterId] || letterId;
+            const audioPath = `שמות האותיות/${fileName}.mp3`;
             playAudio(audioPath);
         }
         
@@ -961,4 +1056,66 @@
         }
     </script>
 </body>
-</html>
+</html>d">שֶׁמֶשׁ</div>
+                        <div class="translation">солнце</div>
+                    </div>
+                </div>
+                <div class="word-card" onclick="playWordSound('etz')">
+                    <div class="word-image-container">
+                        <img src="מילים/etz.jpg" onerror="this.src='https://placehold.co/200x160/f0f0f0/999999?text=עץ'" class="word-image" alt="עץ">
+                    </div>
+                    <div class="word-details">
+                        <div class="hebrew-word">עֵץ</div>
+                        <div class="translation">дерево</div>
+                    </div>
+                </div>
+                <div class="word-card" onclick="playWordSound('tapuach')">
+                    <div class="word-image-container">
+                        <img src="מילים/tapuach.jpg" onerror="this.src='https://placehold.co/200x160/f0f0f0/999999?text=תפוח'" class="word-image" alt="תפוח">
+                    </div>
+                    <div class="word-details">
+                        <div class="hebrew-word">תַּפּוּחַ</div>
+                        <div class="translation">яблоко</div>
+                    </div>
+                </div>
+                <div class="word-card" onclick="playWordSound('tanin')">
+                    <div class="word-image-container">
+                        <img src="מילים/tanin.jpg" onerror="this.src='https://placehold.co/200x160/f0f0f0/999999?text=תנין'" class="word-image" alt="תנין">
+                    </div>
+                    <div class="word-details">
+                        <div class="hebrew-word">תַּנִּין</div>
+                        <div class="translation">крокодил</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- לשונית צליל פותח -->
+        <div id="opening-sound" class="tab-content">
+            <h2>תרגול צליל פותח</h2>
+            <p>בחרו מילה ומצאו את הצליל הפותח שלה</p>
+            
+            <div class="instructions-container">
+                <div class="instructions hebrew">
+                    <h3>הוֹרָאוֹת לְתִרְגּוּל:</h3>
+                    <p>1. לַחֲצוּ עַל אַחַת הַמִּלִּים לְמַטָּה</p>
+                    <p>2. הַקְשִׁיבוּ לַמִּלָּה</p>
+                    <p>3. בַּחֲרוּ אֶת הַצְּלִיל הַפּוֹתֵחַ (הָרִאשׁוֹן) שֶׁל הַמִּלָּה</p>
+                    <p>4. לַחֲצוּ עַל "בְּדֹק תְּשׁוּבָה" לְקַבָּלַת מַשׁוֹב</p>
+                </div>
+                <div class="instructions russian">
+                    <h3>Инструкции для упражнения:</h3>
+                    <p>1. Нажмите на одно из слов ниже</p>
+                    <p>2. Прослушайте слово</p>
+                    <p>3. Выберите начальный (первый) звук слова</p>
+                    <p>4. Нажмите "Проверить ответ" для получения результата</p>
+                </div>
+            </div>
+            
+            <div class="word-grid">
+                <div class="word-card" onclick="prepareOpeningSoundExercise('shemesh', 'שֶׁמֶשׁ', 'שׁ')">
+                    <div class="word-image-container">
+                        <img src="מילים/shemesh.jpg" onerror="this.src='https://placehold.co/200x160/f0f0f0/999999?text=שמש'" class="word-image" alt="שמש">
+                    </div>
+                    <div class="word-details">
+                        <div class="hebrew-wor
